@@ -2,7 +2,9 @@ name: Monthly Fee Reminder
 
 on:
   schedule:
-    - cron: '0 6 1-5 * *'   # 9 AM Ethiopia (UTC+3)
+    #- cron: '0 6 1-5 * *'   # 9 AM Ethiopia (UTC+3)
+    - cron: '0 6 14 * *'   # Runs on the 14th at 9 AM Ethiopia time
+
   workflow_dispatch:
 
 jobs:
