@@ -1,0 +1,23 @@
+name: Monthly Fee Reminder
+
+on:
+  schedule:
+    - cron: '0 6 1-5 * *'   # 9 AM Ethiopia (UTC+3)
+  workflow_dispatch:
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram reminder
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: |
+          MESSAGE="Dear people 👋
+          Please make sure you pay your monthly fee of 200 birr.
+          Thank you 🙏"
+
+          curl -sS -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -d chat_id="${CHAT_ID}" \
+            -d text="${MESSAGE}"
