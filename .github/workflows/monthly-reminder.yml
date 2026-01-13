@@ -17,8 +17,8 @@ jobs:
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
           MESSAGE="Dear people 👋
-          Please make sure you pay your monthly fee of 200 birr.
-          Thank you 🙏"
+          ሰላም ቅዱሳን ወርህዊ መዋጮአችን ደርሱል.
+          ተባረኩ 🙏"
 
           curl -sS -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -d chat_id="${CHAT_ID}" \
